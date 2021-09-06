@@ -22,6 +22,7 @@ type ProtoNode struct {
 	links []*ipld.Link
 	data  []byte
 
+	blockInfo uint64
 	// cache encoded/marshaled value
 	encoded []byte
 
@@ -45,11 +46,21 @@ var v1CidPrefix = cid.Prefix{
 	Version:  1,
 }
 
+var v2CidPrefix = cid.Prefix{
+	Codec:    cid.DagProtobuf,
+	MhLength: -1,
+	MhType:   mh.SHA2_256,
+	Version:  2,
+}
+
 // V0CidPrefix returns a prefix for CIDv0
 func V0CidPrefix() cid.Prefix { return v0CidPrefix }
 
 // V1CidPrefix returns a prefix for CIDv1 with the default settings
 func V1CidPrefix() cid.Prefix { return v1CidPrefix }
+
+// V2CidPrefix returns a prefix for CIDv1 with the default settings
+func V2CidPrefix() cid.Prefix { return v2CidPrefix }
 
 // PrefixForCidVersion returns the Protobuf prefix for a given CID version
 func PrefixForCidVersion(version int) (cid.Prefix, error) {
@@ -58,6 +69,8 @@ func PrefixForCidVersion(version int) (cid.Prefix, error) {
 		return v0CidPrefix, nil
 	case 1:
 		return v1CidPrefix, nil
+	case 2:
+		return v2CidPrefix, nil
 	default:
 		return cid.Prefix{}, fmt.Errorf("unknown CID version: %d", version)
 	}
