@@ -3,6 +3,7 @@ package merkledag_test
 import (
 	"bytes"
 	"context"
+	"fmt"
 	"testing"
 
 	. "github.com/ipfs/go-merkledag"
@@ -11,6 +12,23 @@ import (
 	cid "github.com/ipfs/go-cid"
 	ipld "github.com/ipfs/go-ipld-format"
 )
+
+func TestMushal(t *testing.T) {
+	p := new(ProtoNode)
+	p.SetBlockInfo(1)
+	node := p.GetPBNode()
+	fmt.Println(node)
+	marshal, err := p.Marshal()
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(marshal)
+	p2, err := DecodeProtobuf(marshal)
+	if err != nil {
+		t.Fatal()
+	}
+	fmt.Println(p2)
+}
 
 func TestStableCID(t *testing.T) {
 	nd := &ProtoNode{}

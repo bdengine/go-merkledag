@@ -123,6 +123,12 @@ func (n *ProtoNode) AddNodeLink(name string, that ipld.Node) error {
 	return nil
 }
 
+func (n *ProtoNode) SetBlockInfo(blockInfo uint64) error {
+	n.blockInfo = blockInfo
+	n.builder = n.builder.SetBlockInfo(blockInfo)
+	return nil
+}
+
 // AddRawLink adds a copy of a link to this node
 func (n *ProtoNode) AddRawLink(name string, l *ipld.Link) error {
 	n.encoded = nil

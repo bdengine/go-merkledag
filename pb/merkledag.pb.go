@@ -15,6 +15,15 @@ import (
 	strings "strings"
 )
 
+// DoNotUpgradeFileEverItWillChangeYourHashes warns users about not breaking
+// their file hashes.
+const DoNotUpgradeFileEverItWillChangeYourHashes = `
+This file does not produce canonical protobufs. Unfortunately, if we change it,
+we'll change the hashes of the files we produce.
+
+Do *not regenerate this file.
+`
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf

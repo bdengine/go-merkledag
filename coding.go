@@ -39,7 +39,7 @@ func (n *ProtoNode) unmarshal(encoded []byte) error {
 		n.links[i].Cid = c
 	}
 	sort.Stable(LinkSlice(n.links)) // keep links sorted
-
+	n.blockInfo = pbn.GetBlockInfo()
 	n.data = pbn.GetData()
 	n.encoded = encoded
 	return nil
@@ -74,7 +74,7 @@ func (n *ProtoNode) GetPBNode() *pb.PBNode {
 			pbn.Links[i].Hash = l.Cid.Bytes()
 		}
 	}
-
+	pbn.BlockInfo = &n.blockInfo
 	if len(n.data) > 0 {
 		pbn.Data = n.data
 	}
