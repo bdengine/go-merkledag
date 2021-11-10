@@ -24,6 +24,15 @@ func NewRawNode(data []byte) *RawNode {
 	return &RawNode{blk}
 }
 
+// NewRawNode creates a RawNode using the default sha2-256 hash function.
+func NewRawNodeWithBlockInfo(data []byte, blockinfo uint64) *RawNode {
+	h := u.Hash(data)
+	c := cid.NewCidV2(blockinfo, cid.Raw, h)
+	blk, _ := blocks.NewBlockWithCid(data, c)
+
+	return &RawNode{blk}
+}
+
 // DecodeRawBlock is a block decoder for raw IPLD nodes conforming to `node.DecodeBlockFunc`.
 func DecodeRawBlock(block blocks.Block) (ipld.Node, error) {
 	if block.Cid().Type() != cid.Raw {

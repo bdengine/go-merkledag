@@ -88,7 +88,7 @@ func (n *ProtoNode) CidBuilder() cid.Builder {
 // is reset to the default value
 func (n *ProtoNode) SetCidBuilder(builder cid.Builder) {
 	if builder == nil {
-		n.builder = v0CidPrefix
+		n.builder = v2CidPrefix
 	} else {
 		n.builder = builder.WithCodec(cid.DagProtobuf)
 		n.cached = cid.Undef
@@ -125,6 +125,9 @@ func (n *ProtoNode) AddNodeLink(name string, that ipld.Node) error {
 
 func (n *ProtoNode) SetBlockInfo(blockInfo uint64) error {
 	n.blockInfo = blockInfo
+	if n.builder == nil {
+		n.builder = v2CidPrefix
+	}
 	n.builder = n.builder.SetBlockInfo(blockInfo)
 	return nil
 }
