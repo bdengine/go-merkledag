@@ -1,7 +1,7 @@
 package mdutils
 
 import (
-	dag "github.com/ipfs/go-merkledag"
+	dag "github.com/bdengine/go-merkledag"
 
 	bsrv "github.com/ipfs/go-blockservice"
 	ds "github.com/ipfs/go-datastore"

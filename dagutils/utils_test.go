@@ -8,8 +8,8 @@ import (
 	"github.com/ipfs/go-cid"
 	ipld "github.com/ipfs/go-ipld-format"
 
-	dag "github.com/ipfs/go-merkledag"
-	mdtest "github.com/ipfs/go-merkledag/test"
+	dag "github.com/bdengine/go-merkledag"
+	mdtest "github.com/bdengine/go-merkledag/test"
 )
 
 func TestAddLink(t *testing.T) {
