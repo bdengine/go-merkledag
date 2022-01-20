@@ -16,6 +16,6 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
-replace github.com/ipfs/go-cid => github.com/bdengine/go-cid v0.0.1
+replace github.com/ipfs/go-cid => github.com/bdengine/go-cid v0.0.2
 
 go 1.12
