@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	. "github.com/bdengine/go-merkledag"
-	dstest "github.com/bdengine/go-merkledag/test"
+	. "github.com/ipfs/go-merkledag"
+	dstest "github.com/ipfs/go-merkledag/test"
 
 	cid "github.com/ipfs/go-cid"
 	ipld "github.com/ipfs/go-ipld-format"

@@ -8,8 +8,8 @@ import (
 	"github.com/ipfs/go-cid"
 	ipld "github.com/ipfs/go-ipld-format"
 
-	dag "github.com/bdengine/go-merkledag"
-	mdtest "github.com/bdengine/go-merkledag/test"
+	dag "github.com/ipfs/go-merkledag"
+	mdtest "github.com/ipfs/go-merkledag/test"
 )
 
 func buildNode(name string, desc map[string]ndesc, out map[string]ipld.Node) ipld.Node {

@@ -12,7 +12,7 @@ import (
 	offline "github.com/ipfs/go-ipfs-exchange-offline"
 	ipld "github.com/ipfs/go-ipld-format"
 
-	dag "github.com/bdengine/go-merkledag"
+	dag "github.com/ipfs/go-merkledag"
 )
 
 // Editor represents a ProtoNode tree editor and provides methods to

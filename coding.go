@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	blocks "github.com/ipfs/go-block-format"
-	pb "github.com/bdengine/go-merkledag/pb"
+	pb "github.com/ipfs/go-merkledag/pb"
 
 	cid "github.com/ipfs/go-cid"
 	ipld "github.com/ipfs/go-ipld-format"
